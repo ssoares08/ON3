@@ -945,41 +945,6 @@ figure{
 
 }
 
-h2 {
-  font-size: 36px;
-  text-align: center;
-  margin: 15px;
-  color: #000
-}
-
-.sectiontitle {
-  display: inline-block;
-  position: relative;
-  font-weight: normal;
-  color: #333132;
-}
-
-.sectiontitle:before,
-.sectiontitle:after {
-  content: "";
-  position: absolute;
-  height: 15px;
-  border-bottom: 3px solid #333132;
-  top: 11px;
-  width: 60%;
-}
-
-.sectiontitle:before {
-  right: 100%;
-  margin-right: 15px;
-}
-
-.sectiontitle:after {
-  left: 100%;
-  margin-left: 15px;
-}
-
-@import url(http://fonts.googleapis.com/css?family=Raleway:200);
 
 .team {
     color: #858585;
@@ -1006,6 +971,8 @@ h4,
     box-shadow: 0 0 8px rgba(0,0,0,.09);
     float: left;
 }
+
+
 
 .teamimg
 {
