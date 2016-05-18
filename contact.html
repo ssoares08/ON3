@@ -41,6 +41,8 @@
 
     <!--main css-->
     <link href="css/responsive.css" rel="stylesheet">
+    
+    <link href="http://codepen.io/katydecorah/pen/23c0352cf1813420a04865d33f1a7c3f" rel="stylesheet">
 
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
@@ -66,7 +68,14 @@
             <div id="main">
               <div class="emailform">
                   
-                <form id="ctsForm" name="ctsForm" method="post" action="https://script.google.com/macros/s/AKfycbz_DQdj-bIKC6XNvNacUC_uEjQyRFWKikmkrQgTv-EXXlJt_dDJ/exec">
+                  <div class='sent' ng-class="{ 'hidden': !submit }">
+                    <h1>
+                      Message sent!
+                      <small>&hellip;okay, not really.</small>
+                    </h1>
+                  </div>
+                  
+                <form id="contactForm" name="contactForm" ng-class="{ 'hidden': submit }" method="post" action="https://script.google.com/macros/s/AKfycbz_DQdj-bIKC6XNvNacUC_uEjQyRFWKikmkrQgTv-EXXlJt_dDJ/exec">
                   
                   <div class="row">
                     <div class="col-md-6">
@@ -74,20 +83,26 @@
                     </div>
 
                     <div class="col-md-6">
-                      <input type="text" name="email" placeholder="Email" class="full item email" spellcheck="false">
+                      <label for='email' ng-class="{'required':contactForm.email.$error.required,'invalid':contactForm.email.$error.email,'ok':contactForm.email.$valid}">
+                      <input id='email' required type="email" name="email" placeholder="Email" ng-model='email' class="full item email" spellcheck="false">
+                        </label>
                     </div>
                   </div>
 
                   <div class="row indent item">
-                    <input type="text" name="titulo" placeholder="Subject" class="full subject" spellcheck="false">
+                    <label for='subject' ng-class="{'required':contactForm.subject.$error.required,'ok':contactForm.subject.$valid}">
+                    <input id='subject' required type="text" name="titulo" placeholder="Subject" ng-model='subject' class="full subject" spellcheck="false">
+                    </label>
                   </div>
 
                   <div class="row indent item">
-                    <textarea name="texto" class="full msg" placeholder="Message"></textarea>
+                    <label for='message' ng-class="{'required':contactForm.message.$error.required,'ok':contactForm.message.$valid}">
+                    <textarea name="texto" ng-model='message' class="full msg" placeholder="Message" required></textarea>
+                    </label>
                   </div>
 
-                  <div class="row">
-                    <button class="btn-contact" type="submit" value="send">Send</button>
+                  <div class="row form-controls">
+                    <button class="btn-contact btn btn-send" ng-click='submit = ! submit' ng-disabled='contactForm.$invalid' type="submit" value="send">Send</button>
                   </div>
                   
                 </form>
@@ -107,6 +122,8 @@
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85807/html5shiv.min.js"></script>
 
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85807/jquery.placeholder.min.js"></script>
+    
+    <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
 
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>-->
